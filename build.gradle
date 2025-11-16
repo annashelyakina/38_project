@@ -3,8 +3,9 @@ plugins {
     id 'io.qameta.allure' version '2.11.2'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+repositories {
+    mavenCentral()
+}
 
 allure {
     report{ // секция репорта
@@ -21,25 +22,12 @@ allure {
 }
 
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     testImplementation(
             "com.codeborne:selenide:7.10.1",
-            "com.github.javafaker:javafaker:1.0.2",
             "org.junit.jupiter:junit-jupiter:5.10.0",
             'org.slf4j:slf4j-simple:2.0.7',
-            'com.codeborne:pdf-test:1.5.0',
-            'com.codeborne:xls-test:1.4.3',
-            'com.opencsv:opencsv:5.12.0',
-            'com.google.code.gson:gson:2.13.2',
-            'com.fasterxml.jackson.core:jackson-databind:2.20.0',
-            'com.fasterxml.jackson.core:jackson-core:2.20.0',
-            'com.fasterxml.jackson.core:jackson-annotations:2.20',
             'io.qameta.allure:allure-selenide:2.24.0'
-
     )
 }
 
@@ -56,8 +44,8 @@ tasks.withType(Test) {
     }
 }
 
-tasks.register('simple', Test) {
+tasks.register('dynamika_tests', Test) {
     useJUnitPlatform {
-        includeTags("simple")
+        includeTags("dynamika_tests")
     }
 }

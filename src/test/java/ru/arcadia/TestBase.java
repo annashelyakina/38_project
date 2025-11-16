@@ -20,6 +20,7 @@ public class TestBase {
         Configuration.remote = ("https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
         open("https://arcadia.spb.ru/");
+
         // Настраиваем capabilities для Selenoid
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(

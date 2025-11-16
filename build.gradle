@@ -44,8 +44,8 @@ tasks.withType(Test) {
     }
 }
 
-tasks.register('dynamika_tests', Test) {
+tasks.register('arcadia_tests', Test) {
     useJUnitPlatform {
-        includeTags("dynamika_tests")
+        includeTags("arcadia_tests")
     }
 }

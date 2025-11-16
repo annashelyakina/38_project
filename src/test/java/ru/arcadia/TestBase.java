@@ -1,4 +1,4 @@
-package ru.dynamika;
+package ru.arcadia;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -6,17 +6,20 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
 
-        Configuration.baseUrl = "https://dynamika.ru";
+//        Configuration.baseUrl = "https://astondevs.ru/";
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browserVersion", "127.0");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.timeout = 10000;
         Configuration.remote = ("https://user1:1234@selenoid.autotests.cloud/wd/hub");
 
+        open("https://arcadia.spb.ru/");
         // Настраиваем capabilities для Selenoid
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.of(

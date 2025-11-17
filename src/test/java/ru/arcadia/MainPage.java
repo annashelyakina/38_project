@@ -7,6 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -16,6 +17,8 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("arcadia_tests")
 public class MainPage extends TestBase {
+
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @BeforeEach
     void allureListener() {
@@ -32,6 +35,11 @@ public class MainPage extends TestBase {
 
     @Test
     void searchCompanyLogoOnPage() {
+
+        step ("Открываем сайт", () -> {
+            registrationPage.openPage()
+                            .closeCookies();
+        });
         step("Проверяем наличие логотипа на странице", () -> {
             $("a.logo").shouldBe(visible);
         });
@@ -40,7 +48,11 @@ public class MainPage extends TestBase {
     @Test
     void checkWelcomeTextOnPage() {
 
-        step("Проверяем наличие лозунга компании на странице", () -> {
+       step ("Открываем сайт", () -> {
+            registrationPage.openPage()
+                            .closeCookies();
+        });
+       step("Проверяем наличие лозунга компании на странице", () -> {
             $("h1.header").shouldHave(text("Превращаем идеи в цифровые решения"));
         });
     }
@@ -48,13 +60,17 @@ public class MainPage extends TestBase {
     @Test
     void contactUsModalDialog() {
 
-        step("Проверяем наличие кнопки для связи и нажимаем её", () -> {
+       step ("Открываем сайт", () -> {
+            registrationPage.openPage()
+                            .closeCookies();
+        });
+       step("Проверяем наличие кнопки для связи и нажимаем её", () -> {
             $("#contactUsModule").shouldBe(visible).click();
         });
-        step("Проверяем открытие формы для связи", () -> {
+       step("Проверяем открытие формы для связи", () -> {
             $("div.modal-content-wrapper").shouldHave(text("Связаться"));
         });
-        step("Закрываем форму для связи", () -> {
+       step("Закрываем форму для связи", () -> {
             $("#close-button").click();
         });
     }
@@ -62,6 +78,10 @@ public class MainPage extends TestBase {
     @Test
     void clickMenuItem() {
 
+        step ("Открываем сайт", () -> {
+            registrationPage.openPage()
+                            .closeCookies();
+        });
         step("Находим пункт меню 'Компания' и нажимаем на него", () -> {
             $(byText("Компания")).click();
         });

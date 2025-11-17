@@ -34,11 +34,22 @@ public class MainPage extends TestBase {
     }
 
     @Test
+    void agreeCookieMessage() {
+
+        step ("Открываем сайт", () -> {
+            registrationPage.openPage();
+        });
+        step("Жмём 'Принять' cookie", () -> {
+            $("button.cookie-message-agree").click();
+        });
+    }
+
+    @Test
     void searchCompanyLogoOnPage() {
 
         step ("Открываем сайт", () -> {
-            registrationPage.openPage()
-                            .closeCookies();
+            registrationPage.openPage();
+
         });
         step("Проверяем наличие логотипа на странице", () -> {
             $("a.logo").shouldBe(visible);
@@ -49,8 +60,8 @@ public class MainPage extends TestBase {
     void checkWelcomeTextOnPage() {
 
        step ("Открываем сайт", () -> {
-            registrationPage.openPage()
-                            .closeCookies();
+            registrationPage.openPage();
+
         });
        step("Проверяем наличие лозунга компании на странице", () -> {
             $("h1.header").shouldHave(text("Превращаем идеи в цифровые решения"));
@@ -61,8 +72,7 @@ public class MainPage extends TestBase {
     void contactUsModalDialog() {
 
        step ("Открываем сайт", () -> {
-            registrationPage.openPage()
-                            .closeCookies();
+            registrationPage.openPage();
         });
        step("Проверяем наличие кнопки для связи и нажимаем её", () -> {
             $("#contactUsModule").shouldBe(visible).click();
@@ -79,8 +89,7 @@ public class MainPage extends TestBase {
     void clickMenuItem() {
 
         step ("Открываем сайт", () -> {
-            registrationPage.openPage()
-                            .closeCookies();
+            registrationPage.openPage();
         });
         step("Находим пункт меню 'Компания' и нажимаем на него", () -> {
             $(byText("Компания")).click();

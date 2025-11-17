@@ -10,9 +10,4 @@ public class RegistrationPage {
         open("https://arcadia.spb.ru/");
         return this;
     }
-    public RegistrationPage closeCookies(){
-        $("span.btn-name").click();
-        return this;
-    }
-
 }

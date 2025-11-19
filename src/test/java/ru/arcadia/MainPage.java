@@ -1,102 +1,64 @@
 package ru.arcadia;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
-import helpers.Attach;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
-import static io.qameta.allure.Allure.step;
 
 @Tag("arcadia_tests")
 public class MainPage extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
 
-    @BeforeEach
-    void allureListener() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
+    @Test
+    @Step("Закрытие окна Cookie")
+    void closeCookieMessage() {
 
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-    }
+        registrationPage.openPage();
+        $("button.cookie-message-agree").click();
+        $("div.cookie-message").shouldBe(hidden);
+     }
 
     @Test
-    void agreeCookieMessage() {
-
-        step ("Открываем сайт", () -> {
-            registrationPage.openPage();
-        });
-        step("Жмём 'Принять' cookie", () -> {
-            $("button.cookie-message-agree").click();
-        });
-    }
-
-    @Test
+    @Step("Поиск логотипа компании на странице")
     void searchCompanyLogoOnPage() {
 
-        step ("Открываем сайт", () -> {
-            registrationPage.openPage();
-
-        });
-        step("Проверяем наличие логотипа на странице", () -> {
-            $("a.logo").shouldBe(visible);
-        });
+        registrationPage.openPage();
+        $("a.logo").shouldBe(visible);
     }
 
     @Test
+    @Step("Поиск лозунга компании на странице")
     void checkWelcomeTextOnPage() {
 
-       step ("Открываем сайт", () -> {
-            registrationPage.openPage();
-
-        });
-       step("Проверяем наличие лозунга компании на странице", () -> {
-            $("h1.header").shouldHave(text("Превращаем идеи в цифровые решения"));
-        });
+        registrationPage.openPage();
+        $("h1.header").shouldHave(text("Превращаем идеи в цифровые решения"));
     }
 
     @Test
+    @Step("Проверка формы для связи")
     void contactUsModalDialog() {
 
-       step ("Открываем сайт", () -> {
-            registrationPage.openPage();
-        });
-       step("Проверяем наличие кнопки для связи и нажимаем её", () -> {
-            $("#contactUsModule").shouldBe(visible).click();
-        });
-       step("Проверяем открытие формы для связи", () -> {
-            $("div.modal-content-wrapper").shouldHave(text("Связаться"));
-        });
-       step("Закрываем форму для связи", () -> {
-            $("#close-button").click();
-        });
+        registrationPage.openPage();
+        $("#contactUsModule").shouldBe(visible).click();
+        $("div.modal-content-wrapper").shouldHave(text("Связаться"));
+        $("#close-button").click();
+        $("div.modal-content-wrapper").shouldBe(hidden);
     }
 
     @Test
+    @Step("Открытие страницы с описанием карьеры в компании")
     void clickMenuItem() {
 
-        step ("Открываем сайт", () -> {
-            registrationPage.openPage();
-        });
-        step("Находим пункт меню 'Компания' и нажимаем на него", () -> {
-            $(byText("Компания")).click();
-        });
-        step("Находим пункт меню 'Карьера' и нажимаем на него", () -> {
-            $(byText("Карьера")).click();
-        });
+        registrationPage.openPage();
+        $(byText("Компания")).click();
+        $(byText("Карьера")).click();
+        $("h1.header").shouldHave(text("Карьера"));
+
     }
 
 }

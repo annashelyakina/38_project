@@ -27,7 +27,7 @@
 <a href="https://github.com/"><img width="6%" title="GitHub" src="media/logo/GitHub.svg"></a>
 <a href="https://www.jenkins.io/"><img width="6%" title="Jenkins" src="media/logo/Jenkins.svg"></a>
 <a href="https://web.telegram.org/"><img width="6%" title="Telegram" src="media/logo/Telegram.svg"></a>
-<a href="https://www.atlassian.com/ru/software/jira"><img width="5%" title="Jira" src="media/logo/Jira.svg"></a>
+<a href="https://www.atlassian.com/ru/software/jira/"><img width="5%" title="Jira" src="media/logo/Jira.svg"></a>
 </p>
 
 #### Для работы с тестами в данном проекте используются: 

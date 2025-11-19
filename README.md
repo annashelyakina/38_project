@@ -1,4 +1,5 @@
 # Проект по автоматическому тестированию сценариев для веб-сайта компании [arcadia](https://arcadia.spb.ru/)
+<img width="6%" title="Arcadia" src="media/logo/logo.svg">
 Аркадия разрабатывает программное обеспечение на заказ. Технические знания и глубокое понимание предметных областей позволяют нам создавать надёжные решения, отвечающие всем требованиям бизнеса. Аркадия входит в Реестр аккредитованных ИТ-компаний.
 ## :scroll: Содержание:
 
@@ -13,19 +14,19 @@
 
 ## :computer: Используемый стек
 
-<p align="center">
-<img width="6%" title="IntelliJ IDEA" src="media/logo/Intelij_IDEA.svg">
-<img width="6%" title="Java" src="media/logo/Java.svg">
-<img width="6%" title="Selenide" src="media/logo/Selenide.svg">
-<img width="6%" title="Selenoid" src="media/logo/Selenoid.svg">
-<img width="6%" title="Allure Report" src="media/logo/Allure_Report.svg">
-<img width="5%" title="Allure TestOps" src="media/logo/AllureTestOps.svg">
-<img width="6%" title="Gradle" src="media/logo/Gradle.svg">
-<img width="6%" title="JUnit5" src="media/logo/JUnit5.svg">
-<img width="6%" title="GitHub" src="media/logo/GitHub.svg">
-<img width="6%" title="Jenkins" src="media/logo/Jenkins.svg">
-<img width="6%" title="Telegram" src="media/logo/Telegram.svg">
-<img width="5%" title="Jira" src="media/logo/Jira.svg">
+<p align="center"> 
+<a href="https://www.jetbrains.com/idea/"><img width="6%" title="IntelliJ IDEA" src="media/logo/Intelij_IDEA.svg"></a> 
+<a href="https://www.java.com/"><img width="6%" title="Java" src="media/logo/Java.svg"></a>
+<a href="https://selenide.org/"><img width="6%" title="Selenide" src="media/logo/Selenide.svg"></a>
+<a href="https://aerokube.com/selenoid/"><img width="6%" title="Selenoid" src="media/logo/Selenoid.svg"></a>
+<a href="https://github.com/allure-framework/allure2"><<img width="6%" title="Allure Report" src="media/logo/Allure_Report.svg"></a>
+<a href="https://qameta.io/"><img width="5%" title="Allure TestOps" src="media/logo/AllureTestOps.svg"></a>
+<a href="https://gradle.org/"><img width="6%" title="Gradle" src="media/logo/Gradle.svg"></a>
+<a href="https://junit.org/junit5/"><img width="6%" title="JUnit5" src="media/logo/JUnit5.svg"></a>
+<a href="https://github.com/"><img width="6%" title="GitHub" src="media/logo/GitHub.svg"></a>
+<a href="https://www.jenkins.io/"><img width="6%" title="Jenkins" src="media/logo/Jenkins.svg"></a>
+<a href="https://web.telegram.org/"><img width="6%" title="Telegram" src="media/logo/Telegram.svg"></a>
+<a href="https://www.atlassian.com/ru/software/jira/"><img width="5%" title="Jira" src="media/logo/Jira.svg"></a>
 </p>
 
 #### Для работы с тестами в данном проекте используются: 
@@ -58,7 +59,7 @@ gradle clean arcadia_tests
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> Сборка в Jenkins
 
-Для запуска сборки необходимо перейти в раздел <code>Собрать с параметрами</code> и нажать кнопку <code>Собрать</code>.
+Для запуска сборки необходимо перейти в раздел <code>Собрать с параметрами</code>, выбрать значение для ENVIRONMENT и задать COMMENT, а далее нажать кнопку <code>Собрать</code>.
 <p align="center">
 <img title="Jenkins Build" src="media/screens/Jenkins.png">
 </p>
@@ -105,5 +106,5 @@ gradle clean arcadia_tests
 
 В отчетах Allure для каждого теста прикреплен не только скриншот, но и видео прохождения теста
 <p align="center">
-  <img title="Selenoid Video" src="media/screens/Video.gif">
+  <img title="Selenoid Video" src="media/video/Video.gif">
 </p>

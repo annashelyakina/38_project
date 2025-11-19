@@ -5,10 +5,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.*;
-import static com.codeborne.selenide.Selenide.*;
-
 @Tag("arcadia_tests")
 public class MainPage extends TestBase {
 
@@ -18,46 +14,53 @@ public class MainPage extends TestBase {
     @Step("Закрытие окна Cookie")
     void closeCookieMessage() {
 
-        registrationPage.openPage();
-        $("button.cookie-message-agree").click();
-        $("div.cookie-message").shouldBe(hidden);
+        registrationPage.openPage()
+                .clickAgreeCookie()
+                .checkHiddenCookie()
+        ;
      }
 
     @Test
     @Step("Поиск логотипа компании на странице")
     void searchCompanyLogoOnPage() {
 
-        registrationPage.openPage();
-        $("a.logo").shouldBe(visible);
+        registrationPage.openPage()
+                .checkLogoOnPage()
+        ;
+
     }
 
     @Test
     @Step("Поиск лозунга компании на странице")
     void checkWelcomeTextOnPage() {
 
-        registrationPage.openPage();
-        $("h1.header").shouldHave(text("Превращаем идеи в цифровые решения"));
-    }
+        registrationPage.openPage()
+                .checkSloganOnPage()
+        ;
+          }
 
     @Test
     @Step("Проверка формы для связи")
     void contactUsModalDialog() {
 
-        registrationPage.openPage();
-        $("#contactUsModule").shouldBe(visible).click();
-        $("div.modal-content-wrapper").shouldHave(text("Связаться"));
-        $("#close-button").click();
-        $("div.modal-content-wrapper").shouldBe(hidden);
-    }
+        registrationPage.openPage()
+                .clickContactUs()
+                .checkTextOnContactUs()
+                .closeContactUs()
+                .checkHiddenContactUs()
+        ;
+          }
 
     @Test
     @Step("Открытие страницы с описанием карьеры в компании")
     void clickMenuItem() {
 
-        registrationPage.openPage();
-        $(byText("Компания")).click();
-        $(byText("Карьера")).click();
-        $("h1.header").shouldHave(text("Карьера"));
+        registrationPage.openPage()
+                .clickMenuItemCompany()
+                .clickSubMenuItemCareer()
+                .checkTextCareerOnPage()
+        ;
+
 
     }
 

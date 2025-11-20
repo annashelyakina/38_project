@@ -1,5 +1,5 @@
 # Проект по автоматическому тестированию сценариев для веб-сайта компании [arcadia](https://arcadia.spb.ru/)
-<img width="6%" title="Arcadia" src="media/logo/logo.svg">
+<img width="40%" title="Arcadia" src="media/logo/logo.png">
 Аркадия разрабатывает программное обеспечение на заказ. Технические знания и глубокое понимание предметных областей позволяют нам создавать надёжные решения, отвечающие всем требованиям бизнеса. Аркадия входит в Реестр аккредитованных ИТ-компаний.
 
 ## :scroll: Содержание:
@@ -27,7 +27,7 @@
 <a href="https://github.com/"><img width="6%" title="GitHub" src="media/logo/GitHub.svg"></a>
 <a href="https://www.jenkins.io/"><img width="6%" title="Jenkins" src="media/logo/Jenkins.svg"></a>
 <a href="https://web.telegram.org/"><img width="6%" title="Telegram" src="media/logo/Telegram.svg"></a>
-<a href="https://www.atlassian.com/ru/software/jira/"><img width="5%" title="Jira" src="media/logo/Jira.svg"></a>
+<a href="https://www.atlassian.com/software/jira/"><img width="5%" title="Jira" src="media/logo/Jira.svg"></a>
 </p>
 
 #### Для работы с тестами в данном проекте используются: 
@@ -60,6 +60,8 @@ gradle clean arcadia_tests
 
 ## <img width="4%" style="vertical-align:middle" title="Jenkins" src="media/logo/Jenkins.svg"> Сборка в Jenkins
 
+[Ссылка на сборку в Jenkins](https://jenkins.autotests.cloud/job/038-Anna_Shelyakina-Jenkins-arcadia-project/)
+
 Для запуска сборки необходимо перейти в раздел <code>Собрать с параметрами</code>, выбрать значение для ENVIRONMENT и задать COMMENT, а далее нажать кнопку <code>Собрать</code>.
 <p align="center">
 <img title="Jenkins Build" src="media/screens/Jenkins.png">
@@ -69,11 +71,15 @@ gradle clean arcadia_tests
 ## <img width="4%" style="vertical-align:middle" title="Allure Report" src="media/logo/Allure_Report.svg"> Пример Allure отчета
 ### Overview
 
+[Ссылка на Allure отчёт](https://jenkins.autotests.cloud/job/038-Anna_Shelyakina-Jenkins-arcadia-project/allure/)
+
 <p align="center">
 <img title="Allure Report" src="media/screens/Allure.png">
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Allure TestOps" src="media/logo/AllureTestOps.svg"> Интеграция с Allure TestOps
+
+[Ссылка на проект в Allure TestOps](https://allure.autotests.cloud/project/5006/dashboards)
 
 На *Dashboard* в <code>Allure TestOps</code> видна статистика по тестам: сколько ручных и автоматизированных тестов, результаты прогона при каждом запуске сборки.
 
@@ -88,6 +94,8 @@ gradle clean arcadia_tests
 </p>
 
 ## <img width="4%" style="vertical-align:middle" title="Jira" src="media/logo/Jira.svg"> Интеграция с Jira
+
+[Ссылка на задачу в Jira](https://jira.autotests.cloud/browse/HOMEWORK-1538)
 
 Реализована интеграция <code>Allure TestOps</code> с <code>Jira</code>, в тикете отображается, какие тест-кейсы были связаны с задачей и результат их прогона.
 
